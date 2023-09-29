@@ -1,0 +1,43 @@
+ion-button.avatar::part(native) {
+    color: blue;
+    opacity: 1;
+    padding: 0;
+}
+
+.currency {
+    font-size: 30px;
+    font-weight: 300;
+    // margin: 5% 2.5%;
+    width: 100%;
+    padding: 20px;
+    color: #222;
+    border-radius: 7px;
+    box-shadow: 0 10px 10px 0 rgba(34, 34, 34, 0.404);
+    border: solid 0.5px rgba(236, 236, 236, 0.65);
+    background-color: #ffffff;
+}
+
+.select-list {
+    width: 100%;
+    appearance: none;    
+    margin: 5% auto;
+    padding: 15px;
+    display: block;
+    box-shadow: 0 10px 10px 0 rgba(34, 34, 34, 0.404);
+    background-color: #758c9f;
+    border: 0 transparent;
+    border-radius: 10px;
+    font-family: 'Roboto , 'sans-serif'';
+    font-size: 40px;
+    color: #f3f3f3;
+}
+
+.overview {
+    background-color: #cadae7;
+    padding: 10px;
+
+    ion-col:nth-of-type(1) {
+        color: black;
+        font-weight: 500;
+    }
+}

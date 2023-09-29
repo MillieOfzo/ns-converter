@@ -61,7 +61,7 @@
 
   //--ion-default-font: 'Arimo', sans-serif !important;
   --ion-font-family: Nunito, sans-serif;
-  --ion-menu-font-family: "Cerebri Sans,sans-serif";
+  --ion-menu-font-family: var(--ion-default-font);
 
   --text-font-size: 16px;
 

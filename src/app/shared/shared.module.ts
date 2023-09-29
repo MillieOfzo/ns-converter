@@ -4,13 +4,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxCurrencyDirective } from 'ngx-currency';
+import { PipesModule } from './pipes/pipes.module';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 const customModules = [
-  NgbModule
+  PipesModule,
+  NgbModule,
+  NgxCurrencyDirective,
+  CanvasJSAngularChartsModule
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     IonicModule,

@@ -1,14 +1,85 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>converter</ion-title>
+    <ion-title>NEDCONVERT</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="button-has-icon-only avatar">
+        <span [innerHTML]="profileAvatarSvg" class="rounded-circle nav-user-img nav-user-img-bg"></span>
+      </ion-button>
+
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline" color="medium"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button expand="full" (click)="logout()">Logout</ion-button>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">converter</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <ion-card class="box-shadow">
+
+      <select [(ngModel)]="factoryType" (change)="changeEndpoint()">
+        <option selected value="free">Free</option>
+        <option selected value="live">Live</option>
+      </select>
+
+      <section class="p-4" style="background: rgb(188,199,209);
+background: linear-gradient(0deg, rgba(188,199,209,1) 0%, rgba(231,234,239,1) 100%);">
+        <ion-row>
+          <ion-col size="12" size-sm="4"> <select class="select-list" [(ngModel)]="fromCurr"
+              (change)="getCurrencyRate()">
+              <option *ngFor="let item of countryCodes | keyvalue" selected value="{{item.key}}">{{item.value}}</option>
+            </select></ion-col>
+          <ion-col></ion-col>
+          <ion-col size="12" size-sm="4"> <select class="select-list" [(ngModel)]="toCurr" (change)="getCurrencyRate()">
+              <option *ngFor="let item of countryCodes | keyvalue" selected value="{{item.key}}">{{item.value}}</option>
+            </select></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" size-sm="4">
+            <h4>Amount</h4>
+            <input class="currency" currencyMask [options]="{
+            prefix: '',
+            thousands: '.',
+            decimal: ','
+          }" autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="0,00" inputmode="decimal"
+              [(ngModel)]="fromValue" maxlength="12" (keyup)="calculateCurrencyOne()" />
+          </ion-col>
+          <ion-col class="ion-text-center" size="12" size-sm="4">
+            <ion-button shape="round" (click)="swapCurrency()">
+              <ion-icon slot="icon-only" name="swap-horizontal-outline"
+                style="padding: 20px; font-size: 40px;"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="12" size-sm="4">
+            <h4>Amount</h4>
+            <input class="currency" currencyMask [options]="{
+            prefix: '',
+            thousands: '.',
+            decimal: ','
+          }" autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="0,00" inputmode="decimal"
+              [(ngModel)]="toValue" maxlength="12" (keyup)="calculateCurrencyOne()" />
+
+          </ion-col>
+        </ion-row>
+
+
+        <section class="overview mt-5">
+          <ion-row>
+            <ion-col>
+              <h4>{{fromCurr}}/{{toCurr}}</h4>
+            </ion-col>
+            <ion-col>
+              <p><b>{{resultRate}}</b> op {{currentTime}} </p>
+            </ion-col>
+          </ion-row>
+        </section>
+      </section>
+
+      <div class="mt-5">
+        <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'400px'}"
+          (chartInstance)="getChartInstance($event)"></canvasjs-chart>
+      </div>
+    </ion-card>
+  </div>
 </ion-content>
