@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {
-  AuthGuard,
-  AutoLoginGuard
+  AuthGuard
 } from './shared/guards';
 
 const routes: Routes = [
@@ -15,7 +14,6 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/auth/login/login.module').then((m) => m.LoginPageModule),
-    canLoad: [AutoLoginGuard],
   },
   {
     path: 'converter',

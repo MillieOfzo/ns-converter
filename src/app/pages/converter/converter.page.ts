@@ -77,8 +77,8 @@ export class ConverterPage implements OnInit {
   countryCodes = CURRENCY_LIST;
   countryNames = new Map();
 
-  resultRate: any;
-  swappedRate: any;
+  resultRate: number;
+  swappedRate: number;
 
   fromValue: number;
   toValue: number;
@@ -95,7 +95,7 @@ export class ConverterPage implements OnInit {
     private authService: AuthenticationService,
     private router: Router,
     private sanitizer: DomSanitizer
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.currentTime = formatDate(new Date(), 'dd/MM/yyyy H:m', this.locale);
@@ -145,17 +145,21 @@ export class ConverterPage implements OnInit {
       let rate = exchangeRate.data[to];
 
       this.resultRate = rate;
+
+      // Update calculations
+      this.calculateCurrencyOne();
+      this.calculateCurrencyTwo();
     } catch (err) {
       console.error(err);
     }
   }
 
   calculateCurrencyOne() {
-    this.toValue = this.fromValue * parseFloat(this.resultRate);
+    this.toValue = this.fromValue * this.resultRate;
   }
 
   calculateCurrencyTwo() {
-    this.fromValue = this.toValue / parseFloat(this.resultRate);
+    this.fromValue = this.toValue / this.resultRate;
   }
 
   swapCurrency() {
@@ -177,6 +181,7 @@ export class ConverterPage implements OnInit {
     this.currencyService = this.serviceFactory.getService(this.factoryType);
 
     this.getCurrencyRate();
+    this.getHistorical();
   }
 
   async logout() {
