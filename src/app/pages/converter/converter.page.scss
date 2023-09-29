@@ -18,6 +18,7 @@ ion-button.avatar::part(native) {
 }
 
 .select-list {
+    cursor: pointer;
     width: 100%;
     appearance: none;    
     margin: 5% auto;
