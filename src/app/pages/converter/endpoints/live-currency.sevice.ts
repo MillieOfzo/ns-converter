@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, pipe, map } from 'rxjs';
-import { CurrencyBaseService, FactoryResponse } from '../currency-base.service';
+import { Observable, map } from 'rxjs';
+import { CurrencyBaseService, FactoryCurrencyListResponse, FactoryResponse } from '../currency-base.service';
 
 export type LiveFactoryResponse = {
   data: {
@@ -21,6 +21,12 @@ export class LiveCurrencyService extends CurrencyBaseService {
   constructor(public http: HttpClient) {
     super();
   }
+
+  public countryCodes: FactoryCurrencyListResponse = {
+    'EUR': 'Euro',
+    'USD': 'US Dollar',
+    'JPY': 'Japanese Yen',
+}
 
   getExchangeRate(from: string, to: string): Observable<FactoryResponse> {
     return this.http.get<LiveFactoryResponse>(`${this.apiUrl}latest?apikey=${this.API_KEY}&base_currency=${from}&currencies=${to}`).pipe(

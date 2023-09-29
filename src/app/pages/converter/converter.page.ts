@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/services';
 import { identicon } from 'src/app/shared/utils/identicon';
-import { CurrencyBaseService } from './currency-base.service';
+import { CurrencyBaseService, FactoryCurrencyListResponse } from './currency-base.service';
 import {
   CurrencyFactoryService,
   FactoryType,
@@ -74,8 +74,7 @@ export class ConverterPage implements OnInit {
     ],
   };
 
-  countryCodes = CURRENCY_LIST;
-  countryNames = new Map();
+  countryCodes: FactoryCurrencyListResponse = {};
 
   resultRate: number;
   swappedRate: number;
@@ -103,11 +102,7 @@ export class ConverterPage implements OnInit {
       identicon('ns-converter')
     );
 
-    // Get the current service dynamically
-    this.currencyService = this.serviceFactory.getService(this.factoryType);
-
-    this.getCurrencyRate();
-    this.getHistorical();
+    this.changeEndpoint()
   }
 
   getChartInstance(chart: object) {
@@ -178,8 +173,10 @@ export class ConverterPage implements OnInit {
   }
 
   changeEndpoint() {
+    // Get the current service dynamically
     this.currencyService = this.serviceFactory.getService(this.factoryType);
 
+    this.countryCodes = this.currencyService.countryCodes;
     this.getCurrencyRate();
     this.getHistorical();
   }
