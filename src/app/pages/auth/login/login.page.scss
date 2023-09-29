@@ -1,0 +1,123 @@
+ion-header.login-header {
+  box-shadow: none;
+  &.ios {
+    padding-top: var(--ion-safe-area-top);
+  }
+
+  ion-img {
+    &.login-header-img {
+      display: inline-block;
+      margin-bottom: 80px;
+      padding: 80px;
+      height: auto;
+    }
+
+    &::part(image) {
+      width: 90%;
+      display: inherit;
+    }
+  }
+}
+
+ion-header .top-background {
+  border-radius: 0 0 35px 35px;
+  background-color: var(--custom-card-background) !important;
+}
+
+ion-back-button {
+  color: var(--ion-color-medium);
+}
+
+ion-toolbar {
+  position: absolute;
+  z-index: 11;
+  --background: transparent;
+}
+
+.header-md:after {
+  height: 0px !important;
+}
+
+.logo {
+  width: 90px;
+  margin-top: 20px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.login-box {
+  max-width: 600px;
+
+  form > section {
+    margin: 0px 10px 10px 10px;
+  }
+
+  ion-item {
+    --background: transparant;
+    background-color: var(--custom-input-background);
+    margin: 0px 10px 10px 10px;
+    border-radius: 8px;
+    border: var(--custom-input-border);
+
+    &.ios {
+      ::part(native) {
+        border-radius: 8px;
+      }
+    }
+
+    ion-note {
+      font-size: 14px !important;
+    }
+
+    &.item-has-focus {
+      border-color: var(--ion-color-vendor);
+    }
+
+    > .item-bottom {
+      background-color: var(--custom-input-background);
+    }
+  }
+}
+
+ion-back-button {
+  color: var(--ion-color-medium);
+}
+
+ion-toolbar {
+  position: absolute;
+  z-index: 11;
+  --background: transparent;
+}
+
+ion-input {
+  color: var(--custom-input-color) !important;
+}
+
+ion-content {
+  --background: var(--custom-background) !important;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+ion-row {
+  background: transparent !important;
+  // margin: 8px !important;
+}
+
+ion-card {
+  padding-top: 10px;
+  background: var(--custom-card-background) !important;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+ion-grid {
+  position: relative;
+  top: -100px;
+  z-index: 10;
+}

@@ -1,0 +1,80 @@
+<ion-content fullscreen="true">
+  <ion-header class="login-header">
+    <div
+      class="top-background background-size ion-text-center"
+      style="padding-top: 300px;"
+      [ngStyle]="{
+        'background-image': hasBackground ? 'url(' + backgroundImg + ')' : ''
+      }"
+    >
+    </div>
+  </ion-header>
+
+  <ion-grid class="login-box">
+    <ion-row class="justify-content-center">
+      <ion-col size="12" size-md>
+        <ion-card class="ion-no-margin ps-3 pe-3 pt-5 pb-5">
+          <ion-img
+          style="padding:50px"
+          class="login-header-img pt-0"
+          [src]="loginImg"
+          width="600"
+          height="300"
+          alt="Vendor header logo"
+        ></ion-img>
+          <form (ngSubmit)="login()" [formGroup]="credentials">
+            <ion-item class="login" lines="none">
+              <ion-icon
+                name="person-outline"
+                color="medium"
+                class="me-3"
+              ></ion-icon>
+              <ion-input
+                type="email"
+                placeholder="Email"
+                formControlName="email"
+              ></ion-input>
+              <div
+                *ngIf="(email.dirty || email.touched) && email.errors"
+                class="errors"
+              >
+                <span *ngIf="email.errors?.required">Email is verplicht</span>
+                <span *ngIf="email.errors?.email">Email is niet geldig</span>
+              </div>
+            </ion-item>
+
+            <ion-item class="login" lines="none">
+              <ion-icon
+                [name]="!isShow ? 'lock-closed-outline' : 'lock-open-outline'"
+                color="medium"
+                class="me-3"
+              ></ion-icon>
+              <ion-input
+                formControlName="password"
+                [type]="!isShow ? 'password' : 'text'"
+                placeholder="Wachtwoord"
+              ></ion-input>
+              <ion-icon
+                [name]="!isShow ? 'eye' : 'eye-off'"
+                color="medium"
+                (click)="onToggle()"
+                class="toggle-password"
+              ></ion-icon>
+            </ion-item>
+
+            <section>
+              <ion-button
+                type="submit"
+                expand="block"
+                color="info"
+                [disabled]="!credentials.valid"
+                >Inloggen</ion-button
+              >
+            </section>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

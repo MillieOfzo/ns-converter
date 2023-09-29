@@ -1,0 +1,123 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+
+:root {
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --ion-color-secondary: #df0024; //a03636
+  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #c40020;
+  --ion-color-secondary-tint: #e21a3a;
+
+  /** tertiary **/
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  /** info **/
+  --ion-color-info: #4fc6e1;
+  --ion-color-info-rgb: 79, 198, 225;
+  --ion-color-info-contrast: #ffffff;
+  --ion-color-info-contrast-rgb: 255, 255, 255;
+  --ion-color-info-shade: #46aec6;
+  --ion-color-info-tint: #61cce4;
+
+  /** success **/
+  --ion-color-success: #1abc9c;
+  --ion-color-success-rgb: 26, 188, 156;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #17a589;
+  --ion-color-success-tint: #31c3a6;
+
+  /** warning **/
+  --ion-color-warning: #f7b84b;
+  --ion-color-warning-rgb: 247, 184, 75;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #d9a242;
+  --ion-color-warning-tint: #f8bf5d;
+
+  /** danger **/
+  --ion-color-danger: #f1556c;
+  --ion-color-danger-rgb: 241, 85, 108;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d44b5f;
+  --ion-color-danger-tint: #f2667b;
+
+  //--ion-default-font: 'Arimo', sans-serif !important;
+  --ion-font-family: Nunito, sans-serif;
+  --ion-menu-font-family: "Cerebri Sans,sans-serif";
+
+  --text-font-size: 16px;
+
+  --ion-item-border-color: var(--custom-border-color);
+
+  /** Bootstrap colors **/
+  --bs-success-rgb: var(--ion-color-success-rgb) !important;
+  --bs-info-rgb: var(--ion-color-info-rgb) !important;
+  --bs-warning-rgb: var(--ion-color-warning-rgb) !important;
+  --bs-danger-rgb: var(--ion-color-danger-rgb) !important;
+}
+
+@import "./variables-light";
+
+
+.ion-color-info {
+  --ion-color-base: var(--ion-color-info);
+  --ion-color-base-rgb: var(--ion-color-info-rgb);
+  --ion-color-contrast: var(--ion-color-info-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-info-contrast-rgb);
+  --ion-color-shade: var(--ion-color-info-shade);
+  --ion-color-tint: var(--ion-color-info-tint);
+}
+
+.ion-color-vendor {
+  --ion-color-base: var(--ion-color-vendor);
+  --ion-color-base-rgb: var(--ion-color-vendor-rgb);
+  --ion-color-contrast: var(--ion-color-vendor-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-vendor-contrast-rgb);
+  --ion-color-shade: var(--ion-color-vendor-shade);
+  --ion-color-tint: var(--ion-color-vendor-tint);
+  color: var(--ion-color-vendor);
+}
+
+.md,
+.ios {
+  /* TAB BAR */
+  --ion-tab-bar-background: var(--custom-toolbar-background);
+  --ion-tab-bar-color: var(--custom-toolbar-text-color);
+  --ion-tab-bar-color-selected: var(--ion-color-vendor);
+
+  /* Use the primary color as the background for the toolbar */
+  /* --ion-toolbar-background: var(--ion-color-primary);*/
+  --ion-toolbar-background: var(--custom-toolbar-background);
+
+  /* Change the color of the toolbar components */
+  --ion-toolbar-color: var(--custom-toolbar-text-color);
+
+  /* Change the color of the activated toolbar components */
+  --ion-toolbar-color-activated: var(--custom-toolbar-text-color);
+
+  /* Change the color of the unchecked segment buttons */
+  --ion-toolbar-color-unchecked: rgba(255, 255, 255, 0.6);
+
+  /* Change the color of the checked segment button */
+  --ion-toolbar-color-checked: #fff;
+
+  --ion-text-color: var(--custom-text-header);
+}

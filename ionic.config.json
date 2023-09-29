@@ -1,0 +1,7 @@
+{
+  "name": "Converter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
