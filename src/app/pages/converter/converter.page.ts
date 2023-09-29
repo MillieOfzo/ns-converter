@@ -105,13 +105,13 @@ export class ConverterPage implements OnInit {
     this.changeEndpoint()
   }
 
-  getChartInstance(chart: object) {
-    this.chart = chart;
-  }
+  changeEndpoint() {
+    // Get the current service dynamically
+    this.currencyService = this.serviceFactory.getService(this.factoryType);
 
-  updateChartWithData(newData: any[]): void {
-    this.chart.options.data[0].dataPoints = newData;
-    this.chart.render();
+    this.countryCodes = this.currencyService.countryCodes;
+    this.getCurrencyRate();
+    this.getHistorical();
   }
 
   async getHistorical() {
@@ -172,13 +172,14 @@ export class ConverterPage implements OnInit {
     this.calculateCurrencyTwo();
   }
 
-  changeEndpoint() {
-    // Get the current service dynamically
-    this.currencyService = this.serviceFactory.getService(this.factoryType);
 
-    this.countryCodes = this.currencyService.countryCodes;
-    this.getCurrencyRate();
-    this.getHistorical();
+  getChartInstance(chart: object) {
+    this.chart = chart;
+  }
+
+  updateChartWithData(newData: any[]): void {
+    this.chart.options.data[0].dataPoints = newData;
+    this.chart.render();
   }
 
   async logout() {
